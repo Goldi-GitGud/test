@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldi</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="toolbar">
+    <div class="name">Goldi Co.</div>
+  <div class="info">
+    <div class="home">Home</div>
+    <div class="about">About</div>
+    <div class="port">Portfolio</div>
+    <div class="linktree">Link tree</div>
+  </div>
+</div>
+    <div class="container">
+        <h1>Luxury Perfume</h1>
+        <p>Experience the essence of elegance with our premium fragrance.</p>
+        <button onclick="alert('Purchase Successful!')">Purchase</button>
+        <button onclick="alert('Contact Us at: contact@perfume.com')">Contact</button>
+    </div>
+    <div class="icons">
+      <div class="a">
+        <a href="https://www.facebook.com/" target="_blank">FB</a>
+        <a href="https://www.instagram.com/" target="_blank">IG</a>
+        <a href="https://x.com/?lang=en" target="_blank">X</a>
+      </div>
+    </div>
+</body>
+</html>
+
+
+
+css
+
+
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: Arial, sans-serif;
+    background: url(back.webp) no-repeat 100%/100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 1.5s;
+}
+.toolbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+}
+.name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+}
+.info div{
+    border: none;
+    color: darkgoldenrod;
+    padding: 0px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+.icons {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+button {
+    background: darkgoldenrod;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.3s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+.info div:hover {
+    transform: scale(1.1);
+}
+.icons a {
+    margin: 0 10px;
+    color:darkgoldenrod;
+    font-size: 25px;
+    text-decoration: none;
+    border: black;
+    border-width: 8px;
+    background-color: black;
+    border-style: solid;
+    border-radius: 100%;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
