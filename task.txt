@@ -1,129 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goldi</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-  <div class="toolbar">
-    <div class="name">Goldi Co.</div>
-  <div class="info">
-    <div class="home">Home</div>
-    <div class="about">About</div>
-    <div class="port">Portfolio</div>
-    <div class="linktree">Link tree</div>
-  </div>
-</div>
-    <div class="container">
-        <h1>Luxury Perfume</h1>
-        <p>Experience the essence of elegance with our premium fragrance.</p>
-        <button onclick="alert('Purchase Successful!')">Purchase</button>
-        <button onclick="alert('Contact Us at: contact@perfume.com')">Contact</button>
-    </div>
-    <div class="icons">
-      <div class="a">
-        <a href="https://www.facebook.com/" target="_blank">FB</a>
-        <a href="https://www.instagram.com/" target="_blank">IG</a>
-        <a href="https://x.com/?lang=en" target="_blank">X</a>
-      </div>
-    </div>
-</body>
-</html>
+// Task 1: Create a function that takes an array of numbers and returns the largest number in the array.
+// Example input: [10, 5, 20, 8]
+// Output: 20
+function findLargestNumber(arr) {
+    return Math.max(...arr)
+}
+console.log(findLargestNumber([10, 5, 20, 8]))
+// Task 2:Create a function that takes an array of numbers and returns how many of them are positive.
+// Use a loop and an if condition inside it.
+// Example: [-1, 2, 5, -7]
+// Output: 2
+function countPositiveNumbers(arr) {
+    let count = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            count++
+        }
+    }
+    console.log(count)
+}
+countPositiveNumbers([-1, 2, 5, -7])
+// Task 3: Create a function that takes an array of numbers and returns a new array with each number squared.
+// Example input: [2, 3, 4]
+// Output: [4, 9, 16]
+//bonus: Use the map method to create the new array.
+function squareNumbers(arr) {
+    return arr.map(x => x * x)
+}
+console.log(squareNumbers([2, 3, 4]))
+// Task 4: Create a function that takes an array of numbers and returns a new array with only the numbers that are divisible by 3 , then add them together and print the sum.
+// Example input: [3, 5, 9, 12, 14]
+// Output: [3, 9, 12] , sum = 24
+// bonus: Use the filter method to filter the numbers and the reduce method to sum them up.
+function sumDivisibleByThree(arr) {
+    let newArray = arr.filter(x => x % 3 == 0)
+    let sum = newArray.reduce((acc, curr) => {
+        return acc + curr
+    })
+    console.log(newArray , "sum = " + sum)
+}
+sumDivisibleByThree([3, 5, 9, 12, 14])
+// Task 5: Create a function that takes an array of strings and returns a new array with only the strings that have more than 5 characters.
+// Example input: ["apple", "banana", "kiwi", "watermelon"]
+// Output: ["banana", "watermelon"]
+function filterLongStrings(arr) {
+    return arr.filter(x => x.length > 5)
+}
+console.log(filterLongStrings(["apple", "banana", "kiwi", "watermelon"]))
+// Task 6: Create a function that takes a string and returns true if it is a palindrome (reads the same backward as forward), and false otherwise.
+// Example input: "racecar"
+// Output: true
+function isPalindrome(str) {
+    let reversedStr = str.split("").reverse().join("")
+    return str == reversedStr
+}
+console.log(isPalindrome("racecar"))
+// Task 7: Create a function that takes an array of strings and returns a new array with only the even indexed strings converted to uppercase and reversed.
+// Example input: ["apple", "banana", "cherry"]
+// Output: ["ELPPA", "YRREHC"]
+function weirdFunction(arr) {
+    let newArray = arr.filter((x, i) => i % 2 == 0).map((x, index) => {
+        return x.split("").reverse().join("").toUpperCase()
+    })
+    return newArray
+}
+console.log(weirdFunction(["apple", "banana", "cherry"]))
+// Task 8:
 
+const students = [
+    {
+        name: "Ahmed",
+        score: 68,
+    },
+    {
+        name: "Ali",
+        score: 24,
+    },
+    {
+        name: "Mariam",
+        score: 85,
+    },
+    {
+        name: "Amr",
+        score: 54,
+    },
+    {
+        name: "Sara",
+        score: 99,
+    },
+];
+// Create a function that takes the array of students and prints each student and their grade to the console.
+//
+// The grade is calculated as follows:
+// If the score is less than 50, the grade is 'F'.
+// If the score is between 50 and 60, the grade is 'D'.
+// If the score is between 60 and 70, the grade is 'C'.
+// If the score is between 70 and 80, the grade is 'B'.
+// If the score is higher than 80, the grade is 'A'.
+//
+// The output for each student should look like this:
+// "Name: -student name-, Grade: -student grade-"
+//
+// Bonus: Sort the students by their grade in descending order into a new array
+// and print the new array to the console. (Hint: Use the sort method)
 
-
-css
-
-
-
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    font-family: Arial, sans-serif;
-    background: url(back.webp) no-repeat 100%/100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    position: relative;
+// Write your code here
+function calculateGrade(students) {
+    students.sort((a, b) => {
+        if (a.score < b.score) {
+            return 1
+        } else if (a.score > b.score) {
+            return -1
+        } else {
+            return 0
+        }
+    })
+    console.log(students)
+    for (let i = 0; i < students.length; i++) {
+        let grade = ""
+        if (students[i].score < 50) {
+            grade = "F"
+        } else if (students[i].score >= 50 && students[i].score < 60) {
+            grade = "D"
+        } else if (students[i].score >= 60 && students[i].score < 70) {
+            grade = "C"
+        } else if (students[i].score >= 70 && students[i].score < 80) {
+            grade = "B"
+        } else {
+            grade = "A"
+        }
+        console.log(`Name: ${students[i].name}, Grade: ${grade}`)
+    }
 }
-.container {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    animation: fadeIn 1.5s;
-}
-.toolbar{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 35px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-}
-.name {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
-.info {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: inline-flex;
-}
-.info div{
-    border: none;
-    color: darkgoldenrod;
-    padding: 0px 20px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: transform 0.3s;
-}
-.icons {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-}
-button {
-    background: darkgoldenrod;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: transform 0.3s;
-}
-button:hover {
-    transform: scale(1.1);
-}
-.info div:hover {
-    transform: scale(1.1);
-}
-.icons a {
-    margin: 0 10px;
-    color:darkgoldenrod;
-    font-size: 25px;
-    text-decoration: none;
-    border: black;
-    border-width: 8px;
-    background-color: black;
-    border-style: solid;
-    border-radius: 100%;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+calculateGrade(students)
